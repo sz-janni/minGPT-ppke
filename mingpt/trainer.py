@@ -64,7 +64,7 @@ class Trainer:
         # setup the optimizer
         #self.optimizer = model.configure_optimizers(config)
         self.optimizer = torch.optim.AdamW(lr=config.learning_rate, betas=config.betas,
-                                           weight_decay=config.weight_decay)
+                                           weight_decay=config.weight_decay, params=model.parameters())
         # setup the dataloader
         train_loader = DataLoader(
             self.train_dataset,
